@@ -1,0 +1,79 @@
+     <Navbar />
+      <img src={img1} className="h-[800px] w-full -mt-31" />
+      <div>
+        <h1 className="text-5xl font-bold text-center mt-10 bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text">eCell TV</h1>
+        <p className="text-center text-lg mt-3 mb-3">E-Cell NSUT – Where entrepreneurs are made. Tech + non-tech ideas, </p>
+        <p className="text-center text-lg mb-10 mt-2 ">mentorship, and funding opportunities await. Join us to turn your vision into reality!</p>
+    <div className="w-full lg:w-3/5 mx-auto ">
+          <video
+            autoPlay
+            loop
+            muted
+            className="rounded-lg w-full border-4 border-dashed border-orange-500  "
+          >
+            <source src={video1} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+<h2 className="text-4xl font-bold text-center mt-40 -mb-10">OUR GUIDES</h2>
+<div className="flex justify-center items-center mt-50">
+<TiltedCard
+  imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+  altText="Kendrick Lamar - GNX Album Cover"
+  captionText="Kendrick Lamar - GNX"
+  containerHeight="70px"
+  containerWidth="700px"
+  imageHeight="450px"
+  imageWidth="1000px"
+  rotateAmplitude={5}
+  scaleOnHover={1.2}
+  showMobileWarning={false}
+  showTooltip={true}
+  displayOverlayContent={true}
+  overlayContent={
+    <p className="text-[20px] tilted-card-demo-text px-7 py-4 rounded w-[1000px] h-[450px] flex justify-center items-center text-justify">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+  }
+/>
+</div>
+
+<div 
+  className="flex justify-center items-center mt-10 bg-center bg-no-repeat bg-contain" 
+  style={{ 
+    backgroundImage: `url('./assets/img1.png')`, 
+    width: '900px',  // slightly bigger than carousel
+    height: '600px', // slightly bigger than carousel
+    padding: '40px'  // space so carousel fits inside frame
+  }}
+>
+
+
+</div>
+
+
+  <div className="container mx-auto mt-50 lg:mb-50 md:mb-0">
+    <h2 className="text-4xl font-bold text-center mb-30 ">THE CORE</h2>
+    
+    <ChromaGridUse 
+/>
+       
+</div>
+
+
+ <div className="container mx-auto  mb-100 md:mt-350 lg:mt-70 sm:mt-350 ">
+    <h2 className="text-4xl font-bold text-center mb-10 ">THE CORE</h2>
+    
+    <ChromaGridUse 
+/>
+       
+</div>
+
+ <div className="container mx-auto  mb-100 md:mt-350 lg:mt-50 sm:mt-350 ">
+    <h2 className="text-4xl font-bold text-center mb-10 ">THE CORE</h2>
+    
+    <ChromaGridUse 
+/>
+       
+</div>
