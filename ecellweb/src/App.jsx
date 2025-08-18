@@ -1,17 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import Stats from './components/Stats';
-import CardGrid from "./components/CardGrid";
 import Footer from './components/Footer';
-import InfiniteScroll from './components/InfiniteScroll';
-import GlareHover from './components/GlareHover';
-import Masonry from './components/Masonry';
-import MagicBento from './components/MagicBento';
-import Spline from '@splinetool/react-spline';
-import AboutUs from './components/AboutUs';
-import Esummit from './components/Esummit';
-import { HashRouter as Router, Routes, Route  } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router-dom'
 
 import bhel from './assets/profile-pictures/bhel.png'
 import cn from './assets/profile-pictures/cn.png'
@@ -22,6 +12,10 @@ import oyo from './assets/profile-pictures/oyo.png'
 import redbull from './assets/profile-pictures/redbull.png'
 import siti from './assets/profile-pictures/siti.png'
 import du_news from './assets/profile-pictures/du_news.png'
+
+import { useEffect, useState } from 'react';
+import IntroAnimation from './components/IntroAnimation/IntroAnimation.jsx';
+
 
 import gallery1 from './assets/gallery1.png'
 import gallery2 from './assets/gallery2.webp'
@@ -61,90 +55,21 @@ const imgs = [
 ];
 
 const App = () => {
+  const [showIntro, setShowIntro] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowIntro(false), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       {/* Navbar */}
+      {showIntro && <IntroAnimation onComplete={() => setShowIntro(false)} />}
+      <ScrollRestoration />
       <Navbar />
-
-
-       <HeroSection />
-
-       <Esummit />
-
-       <AboutUs />
-      {/* Stats with Glare Hover */}
-      <GlareHover
-        glareColor="#ffffff"
-        glareOpacity={0.3}
-        glareAngle={-30}
-        glareSize={200}
-        transitionDuration={800}
-        playOnce={false}
-      >
-        <Stats />
-      </GlareHover>
-
-      <CardGrid />
-     
-     <section className="mt-20 mb-20">
-        <h2 className="lg:text-6xl text-4xl font-bold text-orange-500 mb-10 text-center mask-b-from-0%">
-          COLLABORATIONS
-        </h2>
-        <div className="h-[300px] relative">
-          <InfiniteScroll
-            items={items}
-            isTilted={true}
-            tiltDirection="left"
-            autoplay={true}
-            autoplaySpeed={0.9}
-            autoplayDirection="down"
-            pauseOnHover={true}
-          />
-        </div>
-      </section>
-
-      <section className="mt-20 mb-110 sm:mb-50 lg:mb-0">
-        <h2 className="lg:text-6xl text-4xl font-bold text-orange-500 text-center mb-10 mask-b-from-0%">
-          GALLERY
-        </h2>
-        <div className="flex justify-center px-4 sm:px-8 md:px-16 lg:px-32 mb-20 min-h-[600px]">
-          <Masonry
-            items={imgs}
-            ease="power3.out"
-            duration={0.1}
-            stagger={0.05}
-            animateFrom="bottom"
-            scaleOnHover={true}
-            hoverScale={0.95}
-            blurToFocus={true}
-            colorShiftOnHover={false}
-          />
-        </div>
-      </section>
-
-      <section className="mt-10 mb-20">
-        <h2 className="lg:text-6xl text-4xl font-bold text-orange-500 text-center mt-200 lg:mt-30 mb-10 mask-b-from-0%">
-          CONTACT US
-        </h2>
-        <div className="flex justify-center scale-100">
-          <MagicBento
-            textAutoHide={true}
-            enableStars={true}
-            enableSpotlight={true}
-            enableBorderGlow={true}
-            enableTilt={true}
-            enableMagnetism={true}
-            clickEffect={true}
-            spotlightRadius={300}
-            particleCount={12}
-            glowColor="252, 152, 52"
-          />
-        </div>
-      </section>
-
-       <Footer />
-
-      
+      <Outlet />
+      <Footer />
     </>
   );
 };

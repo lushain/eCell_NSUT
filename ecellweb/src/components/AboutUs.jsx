@@ -1,5 +1,5 @@
 import React from 'react';
-import video1 from "../assets/video1.mp4";
+// import video1 from "../assets/video1.mp4";
 import { exp } from 'three/tsl';
 const AboutUs = () => {
   return (
@@ -12,7 +12,7 @@ const AboutUs = () => {
             muted
             className="rounded-lg w-full border shadow-orange-400"
           >
-            <source src={video1} type="video/mp4" />
+            {/* <source src={video1} type="video/mp4" /> */}
             Your browser does not support the video tag.
           </video>
         </div>
