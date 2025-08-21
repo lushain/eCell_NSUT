@@ -33,12 +33,12 @@ const Navbar = () => {
             </div> */}
             <div className="lg:hidden md:flex flex-col justify-end">
                 <button onClick={toggleNavbar}>
-                    {mobileDrawerOpen ? <X /> : <Menu />}
+                    {mobileDrawerOpen ? <X color="#000000"/> : <Menu color="#000000"/>}
                 </button>
             </div>
         </div>
         {mobileDrawerOpen && (
-            <div className="fixed right-0 z-20  backdrop-blur-md w-full p-12 flex flex-col justify-center items-center lg:hidden ">
+            <div className="fixed right-0 z-20 bg-white backdrop-blur-md w-full p-12 flex flex-col justify-center items-center lg:hidden ">
                 <ul >
                     {navItems.map((item, index) => (
                         <li key={index} className="py-4 text-black ">
