@@ -105,7 +105,7 @@ export const Home = () => {
         </div>
       </section> */}
 
-      <section className="mt-20 mb-110 sm:mb-50 lg:mb-0">
+      <section className="mt-20 mb-110 sm:mb-50 lg:mb-0 hidden sm:block">
         <h2 className="lg:text-6xl text-4xl font-bold text-orange-500 text-center mb-10 mask-b-from-0%">
           GALLERY
         </h2>
@@ -125,7 +125,7 @@ export const Home = () => {
       </section>
 
       <section className="mt-10 mb-20">
-        <h2 className="lg:text-6xl text-4xl font-bold text-orange-500 text-center mt-230 sm:mt-200 lg:mt-30 mb-10 mask-b-from-0%">
+        <h2 className="lg:text-6xl text-4xl font-bold text-orange-500 text-center mt-2 sm:mt-230 lg:mt-30 mb-10 mask-b-from-0%">
           CONTACT US
         </h2>
         <div className="flex justify-center scale-100">
