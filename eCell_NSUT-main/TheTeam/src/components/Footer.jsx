@@ -12,7 +12,6 @@ const Footer = () => {
           <div className="flex justify-center mb-8">
             <FooterLogo />
           </div>
-          
           {/* Social Media and Useful Links - Side by Side with Horizontal Links */}
           <div className="grid grid-cols-2 gap-8">
             <div>
@@ -51,7 +50,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
         {/* COMMENTED OUT: Previous Layout
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="flex justify-center md:justify-start">
@@ -93,6 +91,7 @@ const Footer = () => {
           </div>
         </div>
         */}
+// ...existing code up to the first export default Footer;
       </div>
     </footer>
   );

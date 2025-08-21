@@ -7,12 +7,20 @@ import ChromaGrid1Use from './components/ChromaGrid1Use.jsx'
 import TiltedCard from './components/TiltedCard.jsx';
 import Footer from './components/Footer.jsx';
 import TheTeamGroupPhoto from './assets/TheTeamGroupPhoto.jpeg';
+import React from 'react'
+import Navbar from './components/Navbar.jsx';
+import img1 from './assets/img1.jpeg';
+import video3 from "./assets/video3.mp4";
+import ChromaGridUse from './components/ChromaGridUse.jsx';
+import ChromaGrid1Use from './components/ChromaGrid1Use.jsx'
+import TiltedCard from './components/TiltedCard.jsx';
+import Footer from './components/Footer.jsx';
+import TheTeamGroupPhoto from './assets/TheTeamGroupPhoto.jpeg';
 
 const App = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar />
-
       {/* Hero Image Section */}
       <div className="relative -mt-10">
         <img 

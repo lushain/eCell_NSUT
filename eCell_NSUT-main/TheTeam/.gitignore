@@ -7,9 +7,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+<<<<<<< HEAD
+node_modules
+=======
 .env
 node_modules
 node_modules/
+>>>>>>> 793ced6 (Initial commit of TheTeam code)
 dist
 dist-ssr
 *.local
@@ -23,4 +27,8 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sln
+<<<<<<< HEAD
 *.sw?
+=======
+*.sw?
+>>>>>>> 793ced6 (Initial commit of TheTeam code)
