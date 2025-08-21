@@ -1,14 +1,14 @@
 import React from 'react';
 import Spline from '@splinetool/react-spline';
 import TextType from './TextType';
-import video_bg from '../assets/video_bg.mp4';
+// import video_bg from '../assets/video_bg.mp4';
 
 const HeroSection = () => {
   return (
-    <div className="bg-transparent w-full h-[800px] px-0 overflow-y-visible overflow-x-visible relative lg:mt-0 -mt-60">
+    <div className="bg-transparent w-full h-[750px] px-0 overflow-y-visible overflow-x-visible relative lg:mt-0 -mt-60">
       {/* Background Video */}
       <video autoPlay loop muted className="h-full w-full z-10">
-        <source src={video_bg} type="video/mp4" />
+        {/* <source src={video_bg} type="video/mp4" /> */}
         Your browser does not support the video tag.
       </video>
 
