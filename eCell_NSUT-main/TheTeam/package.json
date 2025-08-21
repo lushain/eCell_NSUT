@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
+  "name": "timeline",
+=======
   "name": "theteam",
+>>>>>>> 793ced6 (Initial commit of TheTeam code)
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +14,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
+    "lucide-react": "^0.539.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-icons": "^5.5.0"
+=======
     "@tailwindcss/vite": "^4.1.11",
     "gsap": "^3.13.0",
     "lenis": "^1.3.8",
@@ -21,16 +31,26 @@
     "react-icons": "^5.5.0",
     "tailwindcss": "^4.1.11",
     "three": "^0.179.1"
+>>>>>>> 793ced6 (Initial commit of TheTeam code)
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^4.7.0",
+<<<<<<< HEAD
+    "autoprefixer": "^10.4.21",
+=======
+>>>>>>> 793ced6 (Initial commit of TheTeam code)
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+<<<<<<< HEAD
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+=======
+>>>>>>> 793ced6 (Initial commit of TheTeam code)
     "vite": "^7.1.0"
   }
 }
