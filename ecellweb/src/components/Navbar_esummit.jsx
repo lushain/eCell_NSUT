@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
             <div className="flex items-center flex-shrink-0 ml-8">
                 <img className="h-12 w-10 mr-2" src={logo} alt="logo" />
-                <span className="text-xl tracking-tight text-black font-semibold">eCell.NSUT</span>
+                <span className="text-xl tracking-tight text-black font-semibold">eCell NSUT</span>
             </div>
             <ul className="hidden text-black lg:flex px-5 space-x-12 font-bold mr-10">
                 {navItems.map((item, index) => (
@@ -38,16 +38,14 @@ const Navbar = () => {
             </div>
         </div>
         {mobileDrawerOpen && (
-            <div className="fixed right-0 z-20 backdrop-blur-md w-full p-12 flex flex-col justify-center items-center lg:hidden ">
+            <div className="fixed right-0 z-20  backdrop-blur-md w-full p-12 flex flex-col justify-center items-center lg:hidden ">
                 <ul >
                     {navItems.map((item, index) => (
                         <li key={index} className="py-4 text-black ">
                             <a href={item.href} >{item.label}</a>
                         </li>
                     ))}
-                   
                 </ul>
-               
             </div>
         )}
     </div>

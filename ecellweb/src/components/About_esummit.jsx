@@ -2,7 +2,7 @@ import React from 'react'
 import img from '../assets/esummit25.png'
 const About = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8 mb-10">
+    <div className="flex flex-col lg:flex-row items-center justify-around w-full gap-1 mb-10">
   
   {/* Text Section */}
   <div className="lg:w-5/11 w-full lg:order-1 order-2 p-5 lg:ml-[75px]">
@@ -37,7 +37,7 @@ const About = () => {
   </div>
 
   {/* Video Section */}
-  <div className="lg:w-1/5 mr-[95px] w-full flex justify-center lg:order-2 order-1 translate-y-[-10px]">
+  <div className="w-[500px] lg:w-1/5 flex items-center justify-center lg:order-2 order-1 translate-y-[-10px]">
     <img className='mx-auto' src={img} alt="esummitimage" />
   </div>
 
