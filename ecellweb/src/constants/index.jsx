@@ -15,7 +15,7 @@ import user6 from "../assets/profile-pictures/user6.jpg";
 export const navItems = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "#" },
-  { label: "ESummit", href: "#" },
+  { label: "ESummit", href: "/esummit-25" },
   { label: "Team", href: "/team" },
 ];
 

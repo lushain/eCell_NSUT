@@ -1,7 +1,7 @@
 import {Menu, X} from "lucide-react";
 import { useState } from 'react';
 import logo from "../assets/logo_esummit.png";
-import { navItems } from "../constants/index_esummit";
+import { navItems } from "../constants";
 
 const Navbar = () => {
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -17,7 +17,7 @@ const Navbar = () => {
                 <img className="h-12 w-10 mr-2" src={logo} alt="logo" />
                 <span className="text-xl tracking-tight text-black font-semibold">eCell.NSUT</span>
             </div>
-            <ul className="hidden lg:flex px-5 space-x-12 font-bold mr-10">
+            <ul className="hidden text-black lg:flex px-5 space-x-12 font-bold mr-10">
                 {navItems.map((item, index) => (
                     <li key={index}>
                         <a href={item.href}>{item.label}</a>

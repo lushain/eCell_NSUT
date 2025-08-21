@@ -67,9 +67,7 @@ const App = () => {
       {/* Navbar */}
       {showIntro && <IntroAnimation onComplete={() => setShowIntro(false)} />}
       <ScrollRestoration />
-      <Navbar />
       <Outlet />
-      <Footer />
     </>
   );
 };

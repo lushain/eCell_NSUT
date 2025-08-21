@@ -9,7 +9,7 @@ const About = () => {
     <h2 className="text-red-600 font-semibold text-[20px] -mt-5">
       BECAUSE HUSTLES DESERVE HEADLINES:
     </h2>
-    <p className="text-[15px] text-justify mt-2">
+    <p className="text-[15px] text-black text-justify mt-2">
       E-Summit NSUT is our annual celebration of entrepreneurship, innovation, and leadership. 
       It’s where ideas meet execution, and aspiring founders connect with the brightest minds in 
       the startup ecosystem.

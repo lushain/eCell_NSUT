@@ -10,6 +10,9 @@ import MagicBento from '../../components/MagicBento';
 import AboutUs from '../../components/AboutUs';
 import Esummit from '../../components/Esummit';
 
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+
 
 import bhel from '../../assets/profile-pictures/bhel.png'
 import cn from '../../assets/profile-pictures/cn.png'
@@ -62,6 +65,7 @@ const imgs = [
 export const Home = () => {
     return (
         <>
+        <Navbar/>
         <HeroSection />
        <Esummit />
 
@@ -135,6 +139,7 @@ export const Home = () => {
           />
         </div>
       </section>
+      <Footer/>
         </>
     )
 

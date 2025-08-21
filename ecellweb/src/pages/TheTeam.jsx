@@ -6,9 +6,15 @@ import ChromaGrid1Use from '../components/ChromaGrid1Use.jsx'
 import TiltedCard from '../components/TiltedCard.jsx';
 import TheTeamGroupPhoto from '../assets/TheTeamGroupPhoto.jpeg';
 
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+
+
 export const TheTeam = () => {
   return (
     <>
+
+    <Navbar/>
 
     <img src={img1} className="h-[800px] w-full -mt-31" />
 
@@ -76,6 +82,8 @@ export const TheTeam = () => {
 
 
 </div>
+
+<Footer/>
     
     </>
   )
