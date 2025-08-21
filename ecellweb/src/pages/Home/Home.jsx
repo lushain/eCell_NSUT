@@ -88,7 +88,7 @@ export const Home = () => {
         <h2 className="lg:text-6xl text-4xl font-bold text-orange-500 mb-10 text-center mask-b-from-0%">
           COLLABORATIONS
         </h2>
-        <div className="h-[300px] relative">
+        <div className="lg:h-[300px] h-[250px] relative">
           <InfiniteScroll
             items={items}
             isTilted={true}
@@ -121,7 +121,7 @@ export const Home = () => {
       </section>
 
       <section className="mt-10 mb-20">
-        <h2 className="lg:text-6xl text-4xl font-bold text-orange-500 text-center mt-200 lg:mt-30 mb-10 mask-b-from-0%">
+        <h2 className="lg:text-6xl text-4xl font-bold text-orange-500 text-center mt-230 sm:mt-200 lg:mt-30 mb-10 mask-b-from-0%">
           CONTACT US
         </h2>
         <div className="flex justify-center scale-100">

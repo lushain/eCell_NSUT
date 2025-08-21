@@ -1,18 +1,18 @@
 import React from 'react';
-// import video1 from "../assets/video1.mp4";
+import video1 from "../assets/video3.mp4";
 import { exp } from 'three/tsl';
 const AboutUs = () => {
   return (
 <div className="flex flex-col lg:flex-row-reverse items-center justify-between w-full gap-8 mb-20 lg:-mt-10  ">
         {/* Video */}
-        <div className="w-full lg:w-1/3 translate-x-[-150px] ">
+        <div className="w-full lg:w-1/3 lg:translate-x-[-150px] ">
           <video
             autoPlay
             loop
             muted
             className="rounded-lg w-full border shadow-orange-400"
           >
-            {/* <source src={video1} type="video/mp4" /> */}
+            <source src={video1} type="video/mp4" /> 
             Your browser does not support the video tag.
           </video>
         </div>
@@ -22,7 +22,7 @@ const AboutUs = () => {
           <h2 className="text-3xl sm:text-5xl font-bold text-orange-500 mb-4 md:mt-10 mask-b-from-0%">
             ABOUT US
           </h2>
-          <p className="text-base sm:text-lg text-neutral-300 max-w-3xl mx-3 text-right">
+          <p className="text-base sm:text-lg text-neutral-300 max-w-3xl mx-3 lg:text-right">
             The Entrepreneurship Cell of NSUT is the driving force behind fostering a startup culture on campus. We connect
              aspiring entrepreneurs with mentors, investors, and peers to transform ideas into ventures. Through flagship 
              events like E-Summit and InnovateX, eCell blends learning, networking, and execution. From hands-on competitions 
