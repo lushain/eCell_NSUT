@@ -110,7 +110,7 @@ const Events1 = () => {
         `}
       </style>
 
-      <section className="py-16 bg-transparent">
+      <section className="py-16 px-5 bg-transparent">
         <h2 className="font-unifraktur text-black text-center text-5xl md:text-6xl tracking-tight mb-8">
           Events
         </h2>

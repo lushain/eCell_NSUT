@@ -17,7 +17,7 @@ const Ticker = () => {
   );
 
   return (
-    <div className=" -mt-2 bg-[#808080] border-y border-gray-300 w-11/12 py-0 overflow-hidden ml-13">
+    <div className=" -mt-2 bg-[#808080] border-y border-gray-300 w-11/12 py-0 overflow-hidden mx-auto">
       <div className="flex animate-scroll">
         <marquee loop="infinite" scrolldelay="50"><div className="flex items-center flex-shrink-0">{tickerContent}</div></marquee>
         

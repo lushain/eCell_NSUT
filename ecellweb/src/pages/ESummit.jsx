@@ -24,11 +24,11 @@ export const ESummit = () => {
                 <Navbar />
                 <RedRibbon />
                 <Ticker />
-                <div className="mt-7 bg-[#808080] h-[1.5px] w-11/12 ml-13">
+                <div className="mt-7 bg-[#808080] h-[1.5px] mx-auto w-11/12">
 
                 </div>
 
-                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 ml-21">
+                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 mx-auto">
 
                 </div>
                 <div>
@@ -36,29 +36,29 @@ export const ESummit = () => {
                 </div>
                 <About />
 
-                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 ml-21 translate-y-[-20px]">
+                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 mx-auto translate-y-[-20px]">
                 </div>
-                <div className="mt-1 bg-[#808080] h-[2px] w-11/12 ml-13 translate-y-[-20px]">
+                <div className="mt-1 bg-[#808080] h-[2px] w-11/12 mx-auto translate-y-[-20px]">
                 </div>
-                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 ml-21 translate-y-[-20px]">
+                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 mx-auto translate-y-[-20px]">
                 </div>
 
                 <Events1 />
-                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 ml-21 translate-y-[-20px]"></div>
+                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 mx-auto translate-y-[-20px]"></div>
 
 
-                <div className="mt-1 bg-[#808080] h-[2px] w-11/12 ml-13 translate-y-[-20px]">
+                <div className="mt-1 bg-[#808080] h-[2px] w-11/12 mx-auto translate-y-[-20px]">
                 </div>
-                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 ml-21 translate-y-[-20px]">
+                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 mx-auto translate-y-[-20px]">
                 </div>
                 <Timeline />
-                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 ml-21 translate-y-[-20px]">
+                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 mx-auto translate-y-[-20px]">
                 </div>
-                <div className="mt-1 bg-[#808080] h-[2px] w-11/12 ml-13 translate-y-[-20px]">
+                <div className="mt-1 bg-[#808080] h-[2px] w-11/12 mx-auto translate-y-[-20px]">
                 </div>
-                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 ml-21 translate-y-[-20px]">
+                <div className="mt-1 bg-[#808080] h-[0.5px] w-7/8 mx-auto translate-y-[-20px]">
                 </div>
-                <h2 className="font-unifraktur text-center lg:text-7xl md:text-7xl tracking-tight mb-18 ">
+                <h2 className="font-unifraktur text-black text-center text-6xl lg:text-7xl tracking-tight mb-18 ">
                     Gallery
                 </h2>
 

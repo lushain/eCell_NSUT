@@ -1,56 +1,40 @@
-
 import eSummitLogo from '../../assets/Esummit-logo.svg';
 import emblem from '../../assets/Emblem.png';
 
-
 const Hero = () => {
-  
-
-  
   return (
-    <section className="py-10 bg-transparent  ">
+    <section className="py-8 bg-transparent">
+      {/* Container */}
+      <div className="flex items-center justify-center max-w-6xl mx-auto px-4 gap-4 sm:gap-8">
 
-   
-    
-      <div className="grid grid-cols-2 
-      xs:gap-10 
-      sm:gap-20 sm:ml-25
-      md:gap-28 md:ml-50
-      lg:ml-43 lg:gap-165 lg:-mt-5">
-        
-          <div><img 
-            src={emblem} 
-            alt="Emblem of India" 
-            className="h-32 lg:h-48" 
-          /></div>
-          
-          
-          <div>
-          <img 
-            src={emblem} 
-            alt="Emblem of India" 
-            className="h-32 lg:h-48" 
-          /></div>
-        </div>
-      
-      <div>
-        <img 
-          src={eSummitLogo} 
-          alt="eSummit Logo" 
-          className="mx-auto lg:mt-10 lg:h-96 
-          md:h-48 translate-y-[-320px] translate-x-[60px]" 
+        {/* Left Emblem */}
+        <img
+          src={emblem}
+          alt="Emblem of India"
+          className="hidden sm:block sm:h-20 md:h-28 lg:h-36 flex-shrink-0"
+        />
+
+        {/* Center Logo */}
+        <img
+          src={eSummitLogo}
+          alt="eSummit Logo"
+          className="sm:h-16 md:h-28 lg:h-40 mx-4"
+        />
+
+        {/* Right Emblem */}
+        <img
+          src={emblem}
+          alt="Emblem of India"
+          className="hidden sm:block sm:h-20 md:h-28 lg:h-36 flex-shrink-0"
         />
       </div>
 
-       <div className="-mt-105 bg-[#808080] h-[0.5px] w-7/8 ml-21"> 
-        
-      </div>
-      <div className="mt-1 bg-[#808080] h-[2px] w-11/12 ml-13"> 
-      
-    </div>
-    
 
-          
+      {/* Divider lines */}
+      <div className="mt-6">
+        <div className="bg-gray-500 h-[1px] w-11/12 mx-auto"></div>
+        <div className="bg-gray-500 h-[2px] w-10/12 mx-auto mt-1"></div>
+      </div>
     </section>
   );
 };

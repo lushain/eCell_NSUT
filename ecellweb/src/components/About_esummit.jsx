@@ -5,7 +5,7 @@ const About = () => {
     <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8 mb-10">
   
   {/* Text Section */}
-  <div className="lg:w-5/11 w-full lg:order-1 order-2 ml-[75px]">
+  <div className="lg:w-5/11 w-full lg:order-1 order-2 p-5 lg:ml-[75px]">
     <h2 className="text-red-600 font-semibold text-[20px] -mt-5">
       BECAUSE HUSTLES DESERVE HEADLINES:
     </h2>
