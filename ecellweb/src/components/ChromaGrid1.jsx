@@ -25,51 +25,7 @@ const ChromaGrid1 = ({
       gradient: "linear-gradient(145deg,#4F46E5,#000)",
       url: "https://github.com/",
     },
-    {
-      image: "https://i.pravatar.cc/300?img=11",
-      title: "Jordan Chen",
-      subtitle: "DevOps Engineer",
-      handle: "@jordanchen",
-      borderColor: "#10B981",
-      gradient: "linear-gradient(210deg,#10B981,#000)",
-      url: "https://linkedin.com/in/",
-    },
-    {
-      image: "https://i.pravatar.cc/300?img=3",
-      title: "Morgan Blake",
-      subtitle: "UI/UX Designer",
-      handle: "@morganblake",
-      borderColor: "#F59E0B",
-      gradient: "linear-gradient(165deg,#F59E0B,#000)",
-      url: "https://dribbble.com/",
-    },
-    {
-      image: "https://i.pravatar.cc/300?img=16",
-      title: "Casey Park",
-      subtitle: "Data Scientist",
-      handle: "@caseypark",
-      borderColor: "#EF4444",
-      gradient: "linear-gradient(195deg,#EF4444,#000)",
-      url: "https://kaggle.com/",
-    },
-    {
-      image: "https://i.pravatar.cc/300?img=25",
-      title: "Sam Kim",
-      subtitle: "Mobile Developer",
-      handle: "@thesamkim",
-      borderColor: "#8B5CF6",
-      gradient: "linear-gradient(225deg,#8B5CF6,#000)",
-      url: "https://github.com/",
-    },
-    {
-      image: "https://i.pravatar.cc/300?img=60",
-      title: "Tyler Rodriguez",
-      subtitle: "Cloud Architect",
-      handle: "@tylerrod",
-      borderColor: "#06B6D4",
-      gradient: "linear-gradient(135deg,#06B6D4,#000)",
-      url: "https://aws.amazon.com/",
-    },
+    // ... other demo items
   ];
 
   const data = items?.length ? items : demo;
@@ -129,88 +85,83 @@ const ChromaGrid1 = ({
       ref={rootRef}
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
-      className={`relative w-full h-full flex flex-wrap justify-center items-start gap-3 ${className}`}
-      style={
-        {
-          "--r": `${radius}px`,
-          "--x": "50%",
-          "--y": "50%",
-        }
-      }
+      className={`relative w-full h-auto px-4 py-8 flex justify-center bg-transparent ${className}`}
+      style={{
+        "--r": `${radius}px`,
+        "--x": "50%",
+        "--y": "50%",
+      }}
     >
-      {data.map((c, i) => (
-        <article
-          key={i}
-          onMouseMove={handleCardMove}
-          onClick={() => handleCardClick(c.url)}
-          className="group relative flex flex-col w-[250px] rounded-[20px] overflow-hidden border-2 border-transparent transition-colors duration-300 cursor-pointer"
-          style={
-            {
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 z-0">
+        {data.map((c, i) => (
+          <article
+            key={i}
+            onMouseMove={handleCardMove}
+            onClick={() => handleCardClick(c.url)}
+            className="group relative flex flex-col w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-2 border-transparent transition-all duration-300 cursor-pointer shadow-xl hover:shadow-2xl transform hover:-translate-y-2"
+            style={{
               "--card-border": c.borderColor || "transparent",
               background: c.gradient,
-              "--spotlight-color": "rgba(255,255,255,0.3)",
-            }
-          }
-        >
-          <div
-            className="absolute inset-0 pointer-events-none transition-opacity duration-500 z-20 opacity-0 group-hover:opacity-100"
-            style={{
-              background:
-                "radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 70%)",
+              "--spotlight-color": "rgba(255,255,255,0.2)",
+              minHeight: "320px",
             }}
-          />
-          <div className="relative z-10 flex-1 p-[10px] box-border">
-            <img
-              src={c.image}
-              alt={c.title}
-              loading="lazy"
-              className="w-full h-full object-cover rounded-[10px]"
+          >
+            <div
+              className="absolute inset-0 pointer-events-none transition-opacity duration-500 z-20 opacity-0 group-hover:opacity-100"
+              style={{
+                background:
+                  "radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 70%)",
+              }}
             />
-          </div>
-          <footer className="relative z-10 p-3 text-white font-sans grid grid-cols-[1fr_auto] gap-x-3 gap-y-1">
-            <h3 className="m-0 text-[1.05rem] font-semibold">{c.title}</h3>
-            {c.handle && (
-              <span className="text-[0.95rem] opacity-80 text-right">
-                {c.handle}
-              </span>
-            )}
-            <p className="m-0 text-[0.85rem] opacity-85">{c.subtitle}</p>
-            {c.location && (
-              <span className="text-[0.85rem] opacity-85 text-right">
-                {c.location}
-              </span>
-            )}
-          </footer>
-        </article>
-      ))}
+            <div className="relative z-10 flex-1 p-3">
+              <img
+                src={c.image}
+                alt={c.title}
+                loading="lazy"
+                className="w-full h-[200px] object-cover rounded-xl"
+              />
+            </div>
+            <footer className="relative z-10 p-4 text-white font-sans">
+              <h3 className="m-0 text-lg font-bold mb-1 truncate">{c.title}</h3>
+              <p className="m-0 text-sm opacity-90 truncate">{c.subtitle}</p>
+              {c.handle && (
+                <span className="text-xs opacity-75 mt-1 block truncate">
+                  {c.handle}
+                </span>
+              )}
+            </footer>
+          </article>
+        ))}
+      </div>
+      
+      {/* Interactive overlay effects */}
       <div
         className="absolute inset-0 pointer-events-none z-30"
         style={{
-          backdropFilter: "brightness(0.78)",
-          WebkitBackdropFilter: "brightness(0.78)",
+          backdropFilter: "brightness(0.85)",
+          WebkitBackdropFilter: "brightness(0.85)",
           background: "rgba(0,0,0,0.001)",
           maskImage:
-            "radial-gradient(circle var(--r) at var(--x) var(--y),transparent 0%,transparent 15%,rgba(0,0,0,0.10) 30%,rgba(0,0,0,0.22)45%,rgba(0,0,0,0.35)60%,rgba(0,0,0,0.50)75%,rgba(0,0,0,0.68)88%,white 100%)",
+            "radial-gradient(circle var(--r) at var(--x) var(--y),transparent 0%,transparent 20%,rgba(0,0,0,0.1) 35%,rgba(0,0,0,0.3) 55%,rgba(0,0,0,0.6) 75%,rgba(0,0,0,0.9) 95%,white 100%)",
           WebkitMaskImage:
-            "radial-gradient(circle var(--r) at var(--x) var(--y),transparent 0%,transparent 15%,rgba(0,0,0,0.10) 30%,rgba(0,0,0,0.22)45%,rgba(0,0,0,0.35)60%,rgba(0,0,0,0.50)75%,rgba(0,0,0,0.68)88%,white 100%)",
+            "radial-gradient(circle var(--r) at var(--x) var(--y),transparent 0%,transparent 20%,rgba(0,0,0,0.1) 35%,rgba(0,0,0,0.3) 55%,rgba(0,0,0,0.6) 75%,rgba(0,0,0,0.9) 95%,white 100%)",
         }}
       />
       <div
         ref={fadeRef}
-        className="absolute inset-0 pointer-events-none transition-opacity duration-[250ms] z-40"
+        className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-40"
         style={{
-          backdropFilter: " brightness(0.78)",
-          WebkitBackdropFilter: " brightness(0.78)",
+          backdropFilter: "grayscale(1) brightness(0.7)",
+          WebkitBackdropFilter: "grayscale(1) brightness(0.7)",
           background: "rgba(0,0,0,0.001)",
           maskImage:
-            "radial-gradient(circle var(--r) at var(--x) var(--y),white 0%,white 15%,rgba(255,255,255,0.90)30%,rgba(255,255,255,0.78)45%,rgba(255,255,255,0.65)60%,rgba(255,255,255,0.50)75%,rgba(255,255,255,0.32)88%,transparent 100%)",
+            "radial-gradient(circle var(--r) at var(--x) var(--y),white 0%,white 20%,rgba(255,255,255,0.8) 35%,rgba(255,255,255,0.6) 55%,rgba(255,255,255,0.4) 75%,rgba(255,255,255,0.1) 95%,transparent 100%)",
           WebkitMaskImage:
-            "radial-gradient(circle var(--r) at var(--x) var(--y),white 0%,white 15%,rgba(255,255,255,0.90)30%,rgba(255,255,255,0.78)45%,rgba(255,255,255,0.65)60%,rgba(255,255,255,0.50)75%,rgba(255,255,255,0.32)88%,transparent 100%)",
-          opacity: 1,
+            "radial-gradient(circle var(--r) at var(--x) var(--y),white 0%,white 20%,rgba(255,255,255,0.8) 35%,rgba(255,255,255,0.6) 55%,rgba(255,255,255,0.4) 75%,rgba(255,255,255,0.1) 95%,transparent 100%)",
         }}
       />
     </div>
   );
-};
+}
 
 export default ChromaGrid1;

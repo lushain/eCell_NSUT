@@ -68,8 +68,12 @@ export const Home = () => {
         <Navbar/>
         <HeroSection />
        <Esummit />
+      
+      <div id="about-us">
+        <AboutUs />
 
-       <AboutUs />
+      </div>
+       
       {/* Stats with Glare Hover */}
       <GlareHover
         glareColor="#ffffff"
@@ -84,9 +88,9 @@ export const Home = () => {
 
       <CardGrid />
      
-     <section className="mt-20 mb-20">
+     {/* <section className="mt-20 mb-20">
         <h2 className="lg:text-6xl text-4xl font-bold text-orange-500 mb-10 text-center mask-b-from-0%">
-          COLLABORATIONS
+          OUR PAST COLLABORATIONS
         </h2>
         <div className="lg:h-[300px] h-[250px] relative">
           <InfiniteScroll
@@ -99,7 +103,7 @@ export const Home = () => {
             pauseOnHover={true}
           />
         </div>
-      </section>
+      </section> */}
 
       <section className="mt-20 mb-110 sm:mb-50 lg:mb-0">
         <h2 className="lg:text-6xl text-4xl font-bold text-orange-500 text-center mb-10 mask-b-from-0%">

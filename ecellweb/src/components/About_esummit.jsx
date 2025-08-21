@@ -1,5 +1,5 @@
 import React from 'react'
-// import video1 from '../assets/video1.mp4'
+import img from '../assets/esummit25.png'
 const About = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8 mb-10">
@@ -37,16 +37,8 @@ const About = () => {
   </div>
 
   {/* Video Section */}
-  <div className="lg:w-2/5 mr-[95px] w-full lg:order-2 order-1 translate-y-[-10px]">
-    <video
-      autoPlay
-      loop
-      muted
-      className="w-full border shadow-orange-400"
-    >
-      {/* <source src={video1} type="video/mp4" /> */}
-      Your browser does not support the video tag.
-    </video>
+  <div className="lg:w-1/5 mr-[95px] w-full flex justify-center lg:order-2 order-1 translate-y-[-10px]">
+    <img className='mx-auto' src={img} alt="esummitimage" />
   </div>
 
 
