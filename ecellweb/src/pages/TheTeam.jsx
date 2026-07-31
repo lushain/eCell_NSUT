@@ -8,7 +8,7 @@ import TiltedCard from '../components/TiltedCard.jsx';
 import Footer from '../components/Footer.jsx';
 import TheTeamGroupPhoto from '../assets/TheTeamGroupPhoto.jpeg';
 
-const App = () => {
+const TheTeam = () => {
   return (
     <div className="min-h-screen bg-black text-white">
      <Navbar />
@@ -117,5 +117,5 @@ const App = () => {
   )
 }
 
-export default App;
-export { App as TheTeam };
+export default TheTeam;
+export { TheTeam };

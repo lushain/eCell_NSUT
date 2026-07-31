@@ -2,13 +2,12 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import "./IntroAnimation.css";
 
-export default function IntroAnimation() {
+export default function IntroAnimation({ onComplete }) {
   const svgRef = useRef(null);
   const strokeRef = useRef(null);
   const maskTextRef = useRef(null);
   const maskGroupRef = useRef(null);
   const introWrapRef = useRef(null);
-  const tlRef = useRef(null);
 
   useEffect(() => {
     const svg = svgRef.current;
@@ -17,11 +16,10 @@ export default function IntroAnimation() {
     const maskGroup = maskGroupRef.current;
     const introWrap = introWrapRef.current;
 
-    // ----- CONFIG (kept identical to your HTML) -----
-    const strokeDuration = 3.5;   // drawing time (seconds)
-    const zoomDuration = 2.0;     // total zoom time (seconds)
+    // ----- CONFIG -----
+    const strokeDuration = 2.0;   // Slightly increased drawing time (was 1.5)
+    const zoomDuration = 1.5;     // Slightly increased zoom time (was 1.0)
     const bruteScale = 150;       // huge zoom
-    const overshootFactor = 1.06; // (computed but not used in final zoom in this version)
     const holeOffsetX = 0.12;     // nudge X (fraction of char width)
     const holeOffsetY = -0.04;    // nudge Y (fraction of char height)
 
@@ -53,104 +51,102 @@ export default function IntroAnimation() {
     setSVGViewBoxToWindow();
     window.addEventListener("resize", setSVGViewBoxToWindow);
 
-    // stroke-draw setup (same approach as your original)
-    const len = (strokeText && strokeText.getComputedTextLength) ? strokeText.getComputedTextLength() : 1200;
-    // apply initial stroke-dash styles
-    strokeText.style.strokeDasharray = `${len}`;
-    strokeText.style.strokeDashoffset = `${len}`;
-    strokeText.style.opacity = "1";
+    // Wrap GSAP in context for clean React 18 strict mode cleanup
+    let ctx = gsap.context(() => {
+      // stroke-draw setup
+      const len = (strokeText && strokeText.getComputedTextLength) ? strokeText.getComputedTextLength() : 1200;
+      
+      // apply initial stroke-dash styles
+      gsap.set(strokeText, {
+        strokeDasharray: len,
+        strokeDashoffset: len,
+        opacity: 1
+      });
 
-    // compute character bbox with fallback (same logic)
-    function computeCharBBox(index){
-      try {
-        const ext = maskText.getExtentOfChar(index);
-        return { x: ext.x, y: ext.y, width: ext.width, height: ext.height };
-      } catch (e) {
-        const b = maskText.getBBox();
-        return {
-          x: b.x + b.width * 0.08,
-          y: b.y + b.height * 0.15,
-          width: b.width * 0.18,
-          height: b.height * 0.7
-        };
+      // compute character bbox with fallback
+      function computeCharBBox(index){
+        try {
+          const ext = maskText.getExtentOfChar(index);
+          return { x: ext.x, y: ext.y, width: ext.width, height: ext.height };
+        } catch (e) {
+          const b = maskText.getBBox();
+          return {
+            x: b.x + b.width * 0.08,
+            y: b.y + b.height * 0.15,
+            width: b.width * 0.18,
+            height: b.height * 0.7
+          };
+        }
       }
-    }
 
-    // Get bbox and nudged center
-    const viewport = { w: window.innerWidth, h: window.innerHeight };
-    const charBBox = computeCharBBox(targetIndex);
-    let charCenterX = charBBox.x + charBBox.width / 2;
-    let charCenterY = charBBox.y + charBBox.height / 2;
-    // nudge toward the glyph's hole
-    charCenterX += holeOffsetX * charBBox.width;
-    charCenterY += holeOffsetY * charBBox.height;
+      // Get bbox and nudged center
+      const viewport = { w: window.innerWidth, h: window.innerHeight };
+      const charBBox = computeCharBBox(targetIndex);
+      let charCenterX = charBBox.x + charBBox.width / 2;
+      let charCenterY = charBBox.y + charBBox.height / 2;
+      // nudge toward the glyph's hole
+      charCenterX += holeOffsetX * charBBox.width;
+      charCenterY += holeOffsetY * charBBox.height;
 
-    const viewportCenter = { x: viewport.w / 2, y: viewport.h / 2 };
+      const viewportCenter = { x: viewport.w / 2, y: viewport.h / 2 };
 
-    // compute translate for brute-scale (same formula as you had)
-    const tx = viewportCenter.x - bruteScale * charCenterX;
-    const ty = viewportCenter.y - bruteScale * charCenterY;
-    const overshootScale = bruteScale * overshootFactor;
-    const txOvershoot = viewportCenter.x - overshootScale * charCenterX;
-    const tyOvershoot = viewportCenter.y - overshootScale * charCenterY;
+      // compute translate for brute-scale
+      const tx = viewportCenter.x - bruteScale * charCenterX;
+      const ty = viewportCenter.y - bruteScale * charCenterY;
 
-    // ensure deterministic start transform
-    maskGroup.setAttribute("transform", `translate(0 0) scale(1)`);
+      // ensure deterministic start transform
+      gsap.set(maskGroup, { attr: { transform: `translate(0 0) scale(1)` } });
 
-    // Build timeline (exact same sequence & position labels as your original)
-    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-    tlRef.current = tl;
+      // Build timeline with onComplete callback to notify parent App.jsx
+      const tl = gsap.timeline({ 
+        defaults: { ease: "power2.out" },
+        onComplete: () => {
+          if (onComplete) onComplete();
+        }
+      });
 
-    // 1) DRAW stroke
-    tl.to(strokeText, { strokeDashoffset: 0, duration: strokeDuration, ease: "power1.inOut",onComplete: () => {
-        console.log("stroke complete")
-      } });
+      // 1) DRAW stroke
+      tl.to(strokeText, { strokeDashoffset: 0, duration: strokeDuration, ease: "power1.inOut" });
 
-    // small pause (empty tween)
-    tl.to({}, { duration: 0.18 });
+      // small pause
+      tl.to({}, { duration: 0.15 });
 
-    // 2) fade stroke out (starts with previous)
-    tl.to(strokeText, { opacity: 0, duration: 0.5 }, "<");
+      // 2) fade stroke out
+      tl.to(strokeText, { opacity: 0, duration: 0.4 }, "<");
 
-    // 3) mask text => knockout (starts at previous start + 0.04)
-    tl.to(maskText, { attr: { "fill-opacity": 1 }, duration: 0.55 }, "<+=0.04");
+      // 3) mask text => knockout
+      tl.to(maskText, { attr: { "fill-opacity": 1 }, duration: 0.45 }, "<+=0.04");
 
-    // compute final transform strings (as in your file)
-    const finalTransform = `translate(${tx} ${ty}) scale(${bruteScale})`;
+      const finalTransform = `translate(${tx} ${ty}) scale(${bruteScale})`;
 
-    // 4) zoom (starts after previous ends, i.e. ">" )
-    tl.to(maskGroup, { attr: { transform: finalTransform }, duration: zoomDuration, ease: "power4.inOut" }, ">");
+      // 4) zoom
+      tl.to(maskGroup, { attr: { transform: finalTransform }, duration: zoomDuration, ease: "power4.inOut" }, ">");
 
-    // Fade overlay starts at previous start + zoomDuration * 0.4  (your `<+=${zoomDuration * 0.4}`)
-    // and lasts zoomDuration * 0.2
-    const fadeStartOffset = zoomDuration * 0.4; // 0.8s
-    const fadeDuration = zoomDuration * 0.2;    // 0.4s
-    tl.to(introWrap, {
-      opacity: 0,
-      duration: fadeDuration,
-      ease: "power2.out",
-      onComplete: () => {
-        // hide it (same as your original)
-        introWrap.style.display = "none";
-        introWrap.style.pointerEvents = "none";
-      }
-    }, `<+=${fadeStartOffset}`);
+      // Fade overlay
+      const fadeStartOffset = zoomDuration * 0.4;
+      const fadeDuration = zoomDuration * 0.2;
+      tl.to(introWrap, {
+        opacity: 0,
+        duration: fadeDuration,
+        ease: "power2.out",
+        onComplete: () => {
+          introWrap.style.display = "none";
+          introWrap.style.pointerEvents = "none";
+        }
+      }, `<+=${fadeStartOffset}`);
+
+    }, introWrapRef); // Scope GSAP to this component
 
     // cleanup on unmount
     return () => {
-      // kill timeline if still active and remove resize listener
-      if (tlRef.current) {
-        tlRef.current.kill();
-        tlRef.current = null;
-      }
+      ctx.revert(); // Reverts all GSAP animations and kills timelines safely
       window.removeEventListener("resize", setSVGViewBoxToWindow);
     };
-  }, []); // run once on mount
+  }, [onComplete]); 
 
-  // Render the same SVG structure; note refs wired to elements
   return (
-    <div id="intro-wrap" ref={introWrapRef}>
-      <svg id="intro-svg" ref={svgRef} xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <div id="intro-wrap" ref={introWrapRef} className="fixed inset-0 z-[9999] bg-black">
+      <svg id="intro-svg" ref={svgRef} xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-full">
         <defs>
           <mask id="text-mask" maskUnits="userSpaceOnUse">
             <rect id="mask-bg" x="0" y="0" width="100%" height="100%" fill="white" />
@@ -174,7 +170,6 @@ export default function IntroAnimation() {
         </defs>
 
         <g id="overlayWrapper">
-          {/* corrected color to #000000 (valid black) */}
           <rect id="overlayRect" x="0" y="0" width="100%" height="100%" fill="#000000" mask="url(#text-mask)"></rect>
         </g>
 
@@ -192,7 +187,8 @@ export default function IntroAnimation() {
           strokeLinecap="round"
           strokeLinejoin="round"
           letterSpacing="3"
-          style={{ paintOrder: "stroke" }}
+          // Set initial styles here to prevent flash before JS runs
+          style={{ paintOrder: "stroke", strokeDasharray: "2000", strokeDashoffset: "2000" }}
         >
           eCell NSUT
         </text>

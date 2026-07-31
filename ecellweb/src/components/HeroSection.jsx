@@ -1,5 +1,4 @@
 import React from 'react';
-import Spline from '@splinetool/react-spline';
 import TextType from './TextType';
 import video_bg from '../assets/bitcoin.mp4';
 

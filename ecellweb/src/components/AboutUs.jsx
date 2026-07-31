@@ -1,6 +1,6 @@
 import React from 'react';
 import video1 from "../assets/video3.mp4";
-import { exp } from 'three/tsl';
+
 const AboutUs = () => {
   return (
 <div className="flex flex-col lg:flex-row-reverse items-center justify-between w-full gap-8 mb-20 lg:-mt-10  ">
